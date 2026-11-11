@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#050608" />
+  <title>HẢI — Photographer &amp; Videographer | K-Editorial Visual Studio</title>
+  <meta name="description" content="Portfolio chính thức của Hải - Photographer &amp; Videographer theo phong cách K-Editorial &amp; Điện ảnh Hàn Quốc tối giản, sang trọng, tích hợp Google Photos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Noto+Serif+KR:wght@300;400;600&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google Identity Services for OAuth 2.0 Google Photos Connection -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body class="dark-mode cinema-deep-mode">
+  <!-- Soft 35mm Korean Film Grain Overlay -->
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <!-- Navigation Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#home" class="brand-logo" aria-label="Trang chủ Hải Studio">
+        <span class="brand-mark" id="headerAvatarMark">海<img id="headerAvatarImg" class="header-avatar-img" src="hai-avatar.jpg" alt="Hải Avatar" style="display:block;" /></span>
+        <div class="brand-text">
+          <span class="brand-name">HẢI STUDIO</span>
+          <span class="brand-sub">빛과 기록 • SEOUL MOOD</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Điều hướng chính">
+        <a href="#home" class="nav-link active" data-section="home">Trang chủ</a>
+        <a href="#gallery" class="nav-link" data-section="gallery">Thư viện ảnh</a>
+        <a href="#videos" class="nav-link" data-section="videos">Góc Video</a>
+        <a href="#contact" class="nav-link" data-section="contact">Liên hệ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-gphotos" id="openGPhotosBtn" type="button" title="Kết nối &amp; Đồng bộ ảnh từ Google Photos">
+          <svg class="gphotos-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C9.24 2 7 4.24 7 7v5h5c2.76 0 5-2.24 5-5s-2.24-5-5-5z" fill="#EA4335"/>
+            <path d="M22 12c0-2.76-2.24-5-5-5h-5v5c0 2.76 2.24 5 5 5s5-2.24 5-5z" fill="#FBBC04"/>
+            <path d="M12 22c2.76 0 5-2.24 5-5v-5h-5c-2.76 0-5 2.24-5 5s2.24 5 5 5z" fill="#34A853"/>
+            <path d="M2 12c0 2.76 2.24 5 5 5h5v-5c0-2.76-2.24-5-5-5s-5 2.24-5 5z" fill="#4285F4"/>
+          </svg>
+          <span id="gphotosHeaderStatus">Google Photos</span>
+        </button>
+        <button class="btn-github connected" id="openGithubBtn" type="button" title="Kết nối tài khoản &amp; kho lưu trữ GitHub">
+          <svg class="github-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/>
+          </svg>
+          <span id="githubHeaderLabel">@HAI_PHOTO</span>
+        </button>
+        <button class="btn-ambient active" id="cinemaModeBtn" type="button" title="Chế độ Rạp chiếu (OLED Dark Mode)">
+          <span class="status-dot"></span>
+          <span id="cinemaModeLabel">Dark Mode: OLED</span>
+        </button>
+        <a href="#contact" class="btn-gold-sm">Đặt lịch</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Mở menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO / HOME SECTION ================= -->
+    <section id="home" class="hero-section">
+      <div class="hero-media-wrapper">
+        <canvas id="heroCinemaCanvas" class="hero-canvas" aria-label="Thước phim điện ảnh Hàn Quốc mở đầu"></canvas>
+        <div class="hero-vignette"></div>
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-eyebrow">
+          <span class="rec-indicator"><span class="rec-dot"></span> K-CINEMA • 35MM FILM • 24FPS</span>
+          <span class="divider-line"></span>
+          <span class="kr-badge">감성 필름 &amp; 포트폴리오</span>
+          <span class="divider-line"></span>
+          <span class="timecode" id="heroTimecode">00:01:14:08</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-greeting">Hải — Photographer &amp; Videographer</span>
+          <span class="hero-headline">Chất thơ <em>điện ảnh Hàn Quốc</em> trong từng khoảng lặng <em>ánh sáng</em>.</span>
+        </h1>
+
+        <p class="hero-description">
+          Lấy cảm hứng từ mỹ học tối giản của các studio tại Seongsu-dong và màu phim nhựa điện ảnh Seoul — nơi những bức ảnh Phong cảnh, Đường phố, Chân dung và thước phim ngắn mang vẻ đẹp dịu dàng, sâu lắng và sang trọng.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#gallery" class="btn-primary">
+            <span>Khám phá Lookbook &amp; Ảnh</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <button type="button" class="btn-secondary" id="heroConnectGPhotosBtn">
+            <span class="play-icon-circle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C9.24 2 7 4.24 7 7v5h5c2.76 0 5-2.24 5-5s-2.24-5-5-5z" fill="#EA4335"/>
+                <path d="M22 12c0-2.76-2.24-5-5-5h-5v5c0 2.76 2.24 5 5 5s5-2.24 5-5z" fill="#FBBC04"/>
+                <path d="M12 22c2.76 0 5-2.24 5-5v-5h-5c-2.76 0-5 2.24-5 5s2.24 5 5 5z" fill="#34A853"/>
+                <path d="M2 12c0 2.76 2.24 5 5 5h5v-5c0-2.76-2.24-5-5-5s-5 2.24-5 5z" fill="#4285F4"/>
+              </svg>
+            </span>
+            <span>Đồng bộ từ Google Photos</span>
+          </button>
+        </div>
+
+        <!-- Hero Banner Mode & Scene Switcher -->
+        <div class="hero-bottom-bar">
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">08+</span>
+              <span class="stat-label">Năm Nhiếp ảnh &amp; Phim</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">320+</span>
+              <span class="stat-label">Lookbook &amp; K-Visuals</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">35-150mm</span>
+              <span class="stat-label">Màu Film Analog Đặc Trưng</span>
+            </div>
+          </div>
+
+          <div class="hero-scene-controls" role="group" aria-label="Chọn cảnh nền mở đầu">
+            <span class="scene-control-label">MOOD BANNER:</span>
+            <button type="button" class="scene-pill active" data-scene="0">01. Itaewon Đêm Mưa</button>
+            <button type="button" class="scene-pill" data-scene="1">02. Mùa Thu Hàn Quốc</button>
+            <button type="button" class="scene-pill" data-scene="2">03. Seongsu Studio</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GALLERY SECTION ================= -->
+    <section id="gallery" class="section gallery-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">01 / ARCHIVE • 사진 아카이브</span>
+            <h2 class="section-title">Thư Viện Ảnh K-Editorial</h2>
+          </div>
+          <div class="section-header-right">
+            <p class="section-subtitle">
+              Tông nền tối trầm tĩnh (Charcoal Ink) tôn vinh sắc thái màu phim Hàn Quốc và các album đồng bộ trực tiếp từ Google Photos.
+            </p>
+          </div>
+        </div>
+
+        <!-- Google Photos Sync Banner Bar -->
+        <div class="gphotos-sync-bar" id="gphotosSyncBar">
+          <div class="gsb-left">
+            <div class="gsb-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C9.24 2 7 4.24 7 7v5h5c2.76 0 5-2.24 5-5s-2.24-5-5-5z" fill="#EA4335"/>
+                <path d="M22 12c0-2.76-2.24-5-5-5h-5v5c0 2.76 2.24 5 5 5s5-2.24 5-5z" fill="#FBBC04"/>
+                <path d="M12 22c2.76 0 5-2.24 5-5v-5h-5c-2.76 0-5 2.24-5 5s2.24 5 5 5z" fill="#34A853"/>
+                <path d="M2 12c0 2.76 2.24 5 5 5h5v-5c0-2.76-2.24-5-5-5s-5 2.24-5 5z" fill="#4285F4"/>
+              </svg>
+              <span>GOOGLE PHOTOS CLOUD BRIDGE</span>
+            </div>
+            <p class="gsb-text" id="gsbStatusText">
+              Chưa đồng bộ album ngoài. Kết nối tài khoản Google Photos hoặc dán link ảnh/album để tự động hiển thị tác phẩm của bạn.
+            </p>
+          </div>
+          <div class="gsb-actions">
+            <button type="button" class="btn-gsb-quick" id="quickSyncDemoAlbumBtn">
+              + Nạp nhanh Album Google Photos mẫu (6 ảnh)
+            </button>
+            <button type="button" class="btn-gsb-connect" id="galleryOpenGPhotosBtn">
+              Thiết lập Google Photos
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="gallery-toolbar">
+          <div class="filter-tabs" role="tablist" aria-label="Lọc thể loại ảnh">
+            <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
+              Tất cả <span class="filter-count" id="count-all">9</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="gphotos" role="tab" aria-selected="false">
+              Google Photos <span class="filter-count" id="count-gphotos">0</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="landscape" role="tab" aria-selected="false">
+              Phong cảnh <span class="filter-count" id="count-landscape">3</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="street" role="tab" aria-selected="false">
+              Đường phố <span class="filter-count" id="count-street">3</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="portrait" role="tab" aria-selected="false">
+              Chân dung <span class="filter-count" id="count-portrait">3</span>
+            </button>
+          </div>
+
+          <div class="layout-toggle" aria-label="Đổi kiểu hiển thị lưới">
+            <button type="button" class="layout-btn active" id="gridEditorialBtn" title="Bố cục Tạp chí (Magazine Grid)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/>
+              </svg>
+            </button>
+            <button type="button" class="layout-btn" id="gridUniformBtn" title="Bố cục Tối giản (Minimal Grid)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Photo Grid -->
+        <div class="gallery-grid editorial-mode" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- ================= VIDEO SHOWCASE SECTION ================= -->
+    <section id="videos" class="section video-section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">02 / K-CINEMA REEL • 시네마 필름</span>
+            <h2 class="section-title">Góc Video &amp; Thước Phim Ngắn</h2>
+          </div>
+          <p class="section-subtitle">
+            Những thước phim mang nhịp điệu chậm rãi, giàu chất tự sự như một bộ phim điện ảnh độc lập Hàn Quốc, được tinh chỉnh màu sắc tỉ mỉ.
+          </p>
+        </div>
+
+        <div class="cinema-showcase">
+          <!-- Main Featured Video Player -->
+          <div class="featured-player-card">
+            <div class="video-stage" id="videoStage">
+              <canvas id="videoPlayerCanvas" class="video-player-canvas" width="1280" height="720"></canvas>
+
+              <div class="video-top-hud">
+                <span class="hud-badge">SEOUL DIRECTOR'S CUT • 4K</span>
+                <span class="hud-lut" id="activeVideoLut">LUT: Kodak Portra 400 Seoul Soft</span>
+              </div>
+
+              <button type="button" class="video-center-play" id="videoCenterPlayBtn" aria-label="Phát hoặc tạm dừng video">
+                <svg id="centerPlayIcon" width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+                </svg>
+              </button>
+
+              <div class="video-controls-bar">
+                <button type="button" class="vc-btn" id="vcPlayPause" aria-label="Phát/Tạm dừng">
+                  <span id="vcPlayLabel">Tạm dừng</span>
+                </button>
+                <div class="vc-timeline" id="vcTimeline" role="slider" aria-label="Tiến độ video" tabindex="0">
+                  <div class="vc-progress" id="vcProgress" style="width: 35%"></div>
+                </div>
+                <span class="vc-time" id="vcTimeDisplay">00:48 / 02:20</span>
+                <button type="button" class="vc-btn" id="vcColorGradeBtn" title="So sánh trước/sau chỉnh màu K-Film">
+                  <span>K-Color Grade: ON</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="featured-video-meta">
+              <div class="fv-meta-left">
+                <span class="fv-category" id="activeVideoCategory">K-DRAMA MOOD SHORT FILM</span>
+                <h3 class="fv-title" id="activeVideoTitle">Đêm Mưa Itaewon — Những Ánh Đèn Phai</h3>
+                <p class="fv-desc" id="activeVideoDesc">
+                  Ghi lại những khoảnh khắc lặng lẽ trên con dốc Itaewon sau cơn mưa đêm với tông màu xanh trầm pha ánh đèn vàng ấm áp.
+                </p>
+              </div>
+              <div class="fv-specs" id="activeVideoSpecs">
+                <div class="spec-chip"><span>Camera</span><strong>Sony FX3 + Leica M</strong></div>
+                <div class="spec-chip"><span>Ống kính</span><strong>Cooke SP3 32mm T2.4</strong></div>
+                <div class="spec-chip"><span>Film Profile</span><strong>Portra 400 + Halation</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Playlist Sidebar -->
+          <div class="video-playlist">
+            <div class="playlist-header">
+              <h4>Tuyển tập K-Cinema (04)</h4>
+              <span>Chọn để phát</span>
+            </div>
+            <div class="playlist-items" id="videoPlaylist"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT & PHILOSOPHY BANNER ================= -->
+    <section class="section philosophy-section">
+      <div class="container">
+        <div class="philosophy-card">
+          <div class="philosophy-portrait">
+            <canvas id="photographerPortraitCanvas" width="520" height="620" aria-label="Chân dung Hải Photographer phong cách Hàn Quốc"></canvas>
+            <img id="photographerPortraitImg" class="portrait-custom-img" src="hai-avatar.jpg" alt="Chân dung Hải — Visual Director" style="display:block;" />
+            <div class="portrait-gphotos-bar">
+              <a href="https://photos.google.com/photo/AF1QipOtvbseQtK7D2gkdF4kAlDrBh-pzHZRTx_gE9ES" target="_blank" rel="noopener" class="portrait-gp-link" id="portraitGpLink">Google Photos Avatar ↗</a>
+              <button type="button" class="portrait-change-btn" id="changeAvatarBtn">Cập nhật ảnh đại diện</button>
+              <input type="file" id="avatarFileInput" accept="image/*" hidden />
+            </div>
+            <div class="portrait-caption">
+              <span>HẢI — VISUAL DIRECTOR</span>
+              <small>고요한 빛의 미학 • Minimalist Aesthetics</small>
+            </div>
+          </div>
+          <div class="philosophy-copy">
+            <span class="section-tag">ARTIST NOTE • 작가 노트</span>
+            <h2>"Vẻ đẹp chuẩn Hàn nằm ở sự tiết chế — khi khoảng tối êm dịu làm nổi bật từng sắc thái cảm xúc."</h2>
+            <p>
+              Xin chào, tôi là <strong>Hải</strong> — Photographer &amp; Videographer theo đuổi trường phái <em>Korean Minimalist Editorial</em>. Thay vì những gam màu quá gắt, tôi yêu cách ánh sáng tự nhiên phản chiếu mềm mại trên làn da, sương mù bảng lảng trên mặt hồ lúc 5 giờ sáng và chất màu phim 35mm vượt thời gian.
+            </p>
+            <div class="equipment-list">
+              <div class="equip-box">
+                <span class="equip-title">Phong cách Nhiếp ảnh (K-Style)</span>
+                <p>Chân dung tạp chí (Editorial), Lookbook thời trang tối giản, Phong cảnh sương sớm &amp; Đường phố điện ảnh</p>
+              </div>
+              <div class="equip-box">
+                <span class="equip-title">Thiết bị &amp; Màu Film</span>
+                <p>Leica M11 • Sony A1 &amp; FX3 • Ống kính Cooke / Voigtländer • Dehancer Film 35mm &amp; DaVinci Resolve</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Contact Info Column -->
+          <div class="contact-info">
+            <span class="section-tag">03 / CONTACT &amp; BOOKING • 문의하기</span>
+            <h2 class="section-title">Kết Nối Cùng Hải</h2>
+            <p class="contact-lead">
+              Bạn muốn thực hiện một bộ ảnh chân dung mang hơi thở tạp chí Hàn Quốc, bộ Lookbook thương hiệu hay một thước phim ngắn giàu cảm xúc? Hãy gửi lời nhắn cho Hải nhé.
+            </p>
+
+            <div class="contact-cards">
+              <div class="info-card">
+                <span class="info-label">EMAIL LIÊN HỆ</span>
+                <a href="mailto:hai.hau.trang@gmail.com" class="info-value">hai.hau.trang@gmail.com</a>
+              </div>
+              <div class="info-card">
+                <span class="info-label">HOTLINE / ZALO / KAKAOTALK</span>
+                <a href="tel:+84909888666" class="info-value">+84 (0) 909 888 666 • ID: hai.visuals</a>
+              </div>
+            </div>
+
+            <div class="social-links-row">
+              <a href="#contact" class="social-pill" data-social="Instagram">Instagram @hai.visuals</a>
+              <a href="https://github.com/HAI_PHOTO" target="_blank" rel="noopener" class="social-pill" id="contactGithubLink" data-social="GitHub">GitHub @HAI_PHOTO</a>
+              <a href="#contact" class="social-pill" data-social="Behance">Behance</a>
+              <a href="#contact" class="social-pill" data-social="Vimeo">Vimeo K-Reel</a>
+              <a href="#contact" class="social-pill" data-social="YouTube">YouTube</a>
+            </div>
+          </div>
+
+          <!-- Direct Message Form -->
+          <div class="contact-form-wrapper">
+            <form id="contactForm" class="luxury-form" novalidate>
+              <h3 class="form-heading">Đặt lịch chụp / quay hoặc Gửi lời nhắn</h3>
+
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label for="clientName">Họ và tên của bạn *</label>
+                  <input type="text" id="clientName" name="clientName" required placeholder="VD: Bảo Trân / Ji-yeon" />
+                </div>
+                <div class="form-group">
+                  <label for="clientContact">Email hoặc Số điện thoại *</label>
+                  <input type="text" id="clientContact" name="clientContact" required placeholder="name@email.com / 090..." />
+                </div>
+              </div>
+
+              <div class="form-row two-col">
+                <div class="form-group">
+                  <label for="projectType">Concept / Hạng mục mong muốn</label>
+                  <select id="projectType" name="projectType">
+                    <option value="portrait">K-Editorial Portrait / Profile Nghệ thuật</option>
+                    <option value="lookbook">Fashion Lookbook / Studio Tối giản</option>
+                    <option value="landscape">Nhiếp ảnh Phong cảnh &amp; Không gian Kiến trúc</option>
+                    <option value="video">Quay dựng K-Cinema Short Film / MV / Teaser</option>
+                    <option value="both">Gói Toàn diện (Photo + Cinema Reel)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="projectDate">Ngày dự kiến bấm máy</label>
+                  <input type="date" id="projectDate" name="projectDate" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="projectMessage">Chia sẻ về moodboard hoặc ý tưởng của bạn *</label>
+                <textarea id="projectMessage" name="projectMessage" rows="4" required placeholder="Chia sẻ tông màu yêu thích, địa điểm dự kiến hoặc cảm hứng bộ ảnh/video bạn muốn thực hiện..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit" id="submitBtn">
+                <span>Gửi Lời Nhắn Tới Hải</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                </svg>
+              </button>
+
+              <div class="form-feedback" id="formFeedback" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <strong>HẢI — PHOTOGRAPHER &amp; VIDEOGRAPHER</strong>
+        <span>© 2026 Hải Visuals • Korean Minimalist Dark Aesthetic (빛과 순간의 기록).</span>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Lên đầu trang ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= GOOGLE PHOTOS CONNECTION MODAL ================= -->
+  <div class="gphotos-modal" id="gphotosModal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Kết nối Google Photos">
+    <div class="gphotos-backdrop" id="gphotosBackdrop"></div>
+    <div class="gphotos-dialog">
+      <div class="gphotos-dialog-header">
+        <div class="gph-title-group">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C9.24 2 7 4.24 7 7v5h5c2.76 0 5-2.24 5-5s-2.24-5-5-5z" fill="#EA4335"/>
+            <path d="M22 12c0-2.76-2.24-5-5-5h-5v5c0 2.76 2.24 5 5 5s5-2.24 5-5z" fill="#FBBC04"/>
+            <path d="M12 22c2.76 0 5-2.24 5-5v-5h-5c-2.76 0-5 2.24-5 5s2.24 5 5 5z" fill="#34A853"/>
+            <path d="M2 12c0 2.76 2.24 5 5 5h5v-5c0-2.76-2.24-5-5-5s-5 2.24-5 5z" fill="#4285F4"/>
+          </svg>
+          <div>
+            <h3>Kết Nối Google Photos</h3>
+            <span>Đồng bộ ảnh &amp; album trực tiếp vào Thư viện K-Editorial</span>
+          </div>
+        </div>
+        <button type="button" class="gphotos-close" id="gphotosCloseBtn" aria-label="Đóng">✕</button>
+      </div>
+
+      <!-- Mode Switch Tabs -->
+      <div class="gph-tabs">
+        <button type="button" class="gph-tab active" data-gtab="quick">1. Thêm Link Ảnh / File Google Photos</button>
+        <button type="button" class="gph-tab" data-gtab="oauth">2. Kết nối Google OAuth 2.0 API</button>
+        <button type="button" class="gph-tab" data-gtab="cloud">3. Đồng bộ Album K-Film Mẫu</button>
+      </div>
+
+      <div class="gphotos-dialog-body">
+        <!-- TAB 1: Direct URL / Local Upload -->
+        <div class="gph-panel active" id="gtab-quick">
+          <p class="gph-desc">
+            Dán đường dẫn ảnh trực tiếp từ Google Photos (<code>lh3.googleusercontent.com/...</code>) hoặc chọn nhiều ảnh đã tải về từ Google Photos trên máy tính để đưa ngay vào thư viện.
+          </p>
+
+          <form id="gphotosAddForm" class="gph-form">
+            <div class="form-row two-col">
+              <div class="form-group">
+                <label for="gpPhotoTitle">Tên tác phẩm *</label>
+                <input type="text" id="gpPhotoTitle" placeholder="VD: Chiều Thu Hongdae (홍대의 가을)" required />
+              </div>
+              <div class="form-group">
+                <label for="gpPhotoCategory">Thể loại</label>
+                <select id="gpPhotoCategory">
+                  <option value="landscape">Phong cảnh (Landscape)</option>
+                  <option value="street">Đường phố (Street)</option>
+                  <option value="portrait">Chân dung (Portrait)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="gpPhotoUrl">Đường dẫn ảnh Google Photos (URL) hoặc tải ảnh từ máy</label>
+              <input type="url" id="gpPhotoUrl" placeholder="https://lh3.googleusercontent.com/pw/..." />
+            </div>
+
+            <div class="form-group">
+              <label for="gpFileInput" class="file-drop-zone" id="gpDropZone">
+                <span>📂 Hoặc bấm vào đây để chọn nhiều ảnh từ máy tính của bạn (JPG, PNG, WEBP)</span>
+                <input type="file" id="gpFileInput" accept="image/*" multiple hidden />
+              </label>
+            </div>
+
+            <div class="form-row two-col">
+              <div class="form-group">
+                <label for="gpCamera">Máy ảnh &amp; Ống kính</label>
+                <input type="text" id="gpCamera" placeholder="VD: Leica M11 • 35mm Summilux" value="Leica M11 • 35mm f/1.4" />
+              </div>
+              <div class="form-group">
+                <label for="gpLocation">Địa điểm chụp</label>
+                <input type="text" id="gpLocation" placeholder="VD: Seoul, Korea" value="Seoul, South Korea" />
+              </div>
+            </div>
+
+            <div class="gph-actions-row">
+              <button type="submit" class="btn-submit">Đồng Bộ Ảnh Vào Thư Viện</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- TAB 2: Official Google OAuth 2.0 API -->
+        <div class="gph-panel" id="gtab-oauth">
+          <p class="gph-desc">
+            Kết nối trực tiếp với tài khoản Google của bạn qua <strong>Google Identity Services &amp; Photos Library API</strong> để tự động tải danh sách ảnh mới nhất.
+          </p>
+          <div class="form-group">
+            <label for="gpClientId">Google Cloud OAuth 2.0 Client ID</label>
+            <input type="text" id="gpClientId" placeholder="xxxx-xxxxxxxxxxxxxxxx.apps.googleusercontent.com" />
+            <small class="gph-hint">
+              Mẹo: Tạo Client ID tại <em>console.cloud.google.com → APIs &amp; Services → Credentials</em> và thêm địa chỉ trang web hiện tại vào <em>Authorized JavaScript origins</em>.
+            </small>
+          </div>
+          <div class="gph-actions-row">
+            <button type="button" class="btn-submit" id="gpOAuthConnectBtn">
+              Đăng Nhập Google &amp; Lấy Ảnh Từ Google Photos
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB 3: 1-Click Cloud Album Preset -->
+        <div class="gph-panel" id="gtab-cloud">
+          <p class="gph-desc">
+            Trải nghiệm ngay tính năng đồng bộ đám mây với <strong>Album "Seoul &amp; Jeju K-Film 2026" (6 bức ảnh thực tế độ phân giải cao)</strong> được nạp trực tiếp vào bộ lọc <em>Google Photos</em> của trang web.
+          </p>
+          <div class="gph-actions-row">
+            <button type="button" class="btn-submit" id="gpSyncSampleAlbumBtn">
+              Đồng Bộ Ngay 6 Ảnh Từ Album "Seoul &amp; Jeju K-Film"
+            </button>
+            <button type="button" class="btn-clear-gp" id="gpClearSyncedBtn">
+              Xóa các ảnh đã đồng bộ
+            </button>
+          </div>
+        </div>
+
+        <div class="gph-status-msg" id="gphStatusMsg" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= GITHUB CONNECTION MODAL ================= -->
+  <div class="gphotos-modal github-modal" id="githubModal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Kết nối GitHub">
+    <div class="gphotos-backdrop" id="githubBackdrop"></div>
+    <div class="gphotos-dialog github-dialog">
+      <div class="gphotos-dialog-header">
+        <div class="gph-title-group">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="github-modal-icon" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/>
+          </svg>
+          <div>
+            <h3>Kết Nối GitHub &amp; Triển Khai</h3>
+            <span>Liên kết hồ sơ GitHub &amp; đẩy mã nguồn Hải lên GitHub Pages</span>
+          </div>
+        </div>
+        <button type="button" class="gphotos-close" id="githubCloseBtn" aria-label="Đóng">✕</button>
+      </div>
+
+      <div class="gphotos-dialog-body">
+        <p class="gph-desc">
+          Nhập <strong>GitHub Username</strong> hoặc đường dẫn <strong>GitHub Repository URL</strong> (ví dụ: <code>github.com/username/hai-portfolio</code>) để gắn liên kết GitHub vào trang web và tạo lệnh đẩy code tự động.
+        </p>
+
+        <form id="githubConnectForm" class="gph-form">
+          <div class="form-group">
+            <label for="githubInput">GitHub Username hoặc Repository URL *</label>
+            <input type="text" id="githubInput" value="HAI_PHOTO" placeholder="VD: HAI_PHOTO hoặc https://github.com/HAI_PHOTO/hai-portfolio" required />
+          </div>
+          <div class="gph-actions-row">
+            <button type="submit" class="btn-submit" id="githubSaveBtn">Lưu &amp; Kết nối GitHub</button>
+            <button type="button" class="btn-clear-gp" id="githubDisconnectBtn" style="display:inline-flex;">Ngắt kết nối</button>
+          </div>
+        </form>
+
+        <!-- Connected GitHub Profile Card -->
+        <div class="github-profile-card" id="githubProfileCard" style="display:flex;">
+          <div class="gh-profile-top">
+            <img id="ghAvatarImg" class="gh-avatar" src="hai-avatar.jpg" alt="GitHub Avatar" />
+            <div class="gh-profile-meta">
+              <div class="gh-name-row">
+                <strong id="ghDisplayName">HAI_PHOTO</strong>
+                <span class="gh-username-badge" id="ghUsernameBadge">@HAI_PHOTO</span>
+              </div>
+              <p class="gh-bio" id="ghBio">Hải — Photographer &amp; Videographer • K-Editorial Visual Studio</p>
+              <div class="gh-stats-row">
+                <span id="ghRepoCount"><strong>1</strong> Public Repos</span>
+                <span>•</span>
+                <span id="ghFollowersCount"><strong>0</strong> Followers</span>
+              </div>
+            </div>
+          </div>
+          <div class="gh-profile-links">
+            <a href="https://github.com/HAI_PHOTO" target="_blank" rel="noopener" class="gh-link-btn" id="ghProfileUrlBtn">Hồ sơ GitHub ↗</a>
+            <a href="https://github.com/HAI_PHOTO/hai-portfolio" target="_blank" rel="noopener" class="gh-link-btn primary" id="ghRepoUrlBtn">Repo: hai-portfolio ↗</a>
+          </div>
+        </div>
+
+        <!-- Ready-to-run Git Push Commands Card -->
+        <div class="github-cmd-card">
+          <div class="gh-cmd-header">
+            <span>LỆNH ĐẨY LÊN GITHUB (READY TO RUN)</span>
+            <button type="button" class="btn-copy-gh" id="copyGithubCmdBtn">Sao chép lệnh</button>
+          </div>
+          <pre class="gh-cmd-pre"><code id="githubCmdCode">git remote add origin https://github.com/HAI_PHOTO/hai-portfolio.git
+git branch -M main
+git push -u origin main</code></pre>
+        </div>
+
+        <div class="gph-status-msg" id="githubStatusMsg" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LIGHTBOX MODAL ================= -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Xem chi tiết tác phẩm">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-container">
+      <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Đóng cửa sổ">✕</button>
+      <button type="button" class="lightbox-nav prev" id="lightboxPrev" aria-label="Ảnh trước">‹</button>
+      <button type="button" class="lightbox-nav next" id="lightboxNext" aria-label="Ảnh tiếp theo">›</button>
+
+      <div class="lightbox-body">
+        <div class="lightbox-artwork-wrap" id="lightboxArtworkWrap">
+          <canvas id="lightboxCanvas" width="1200" height="850"></canvas>
+          <img id="lightboxImage" alt="Tác phẩm phóng to" style="display:none;" />
+        </div>
+        <aside class="lightbox-sidebar">
+          <span class="lb-category" id="lbCategory">PHONG CẢNH</span>
+          <h3 class="lb-title" id="lbTitle">Tên tác phẩm</h3>
+          <p class="lb-story" id="lbStory"></p>
+
+          <div class="lb-exif-grid">
+            <div class="exif-item"><span>Máy ảnh</span><strong id="lbCamera">Leica M11</strong></div>
+            <div class="exif-item"><span>Ống kính</span><strong id="lbLens">35mm Summilux</strong></div>
+            <div class="exif-item"><span>Thông số</span><strong id="lbExposure">f/1.4 • 1/125s • ISO 400</strong></div>
+            <div class="exif-item"><span>Địa điểm</span><strong id="lbLocation">Seoul / Jeju</strong></div>
+          </div>
+
+          <div class="lb-palette">
+            <span class="palette-label">Bảng màu K-Tone (Color Palette)</span>
+            <div class="palette-swatches" id="lbSwatches"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
